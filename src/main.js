@@ -1,5 +1,6 @@
 let snake=undefined;
 let food=undefined;
+let score=undefined;
 let numberOfRows=60;
 let numberOfCols=120;
 
@@ -41,11 +42,16 @@ const addKeyListener=function() {
   grid.focus();
 }
 
+const setScoreBoard = function(){
+  let initScore = 0;
+  let pointsToAdd = 10;
+  score = new Score(initScore,pointsToAdd);
+};
+
 const updateScore = function(){
-  let score = +document.getElementById('score').innerText;
-  score +=10;
-  document.getElementById('score').innerText =score; 
-}
+  let points = score.addPoints();
+  document.getElementById('score').innerText =points; 
+};
 
 
 const createSnake=function() {
@@ -69,7 +75,8 @@ const startGame=function() {
   createFood(numberOfRows,numberOfCols);
   drawFood(food);
   addKeyListener();
-  animator=setInterval(animateSnake,100);
+  setScoreBoard();
+  animator=setInterval(animateSnake,140);
 }
 
 window.onload=startGame;
