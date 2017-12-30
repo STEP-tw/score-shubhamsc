@@ -13,6 +13,7 @@ const animateSnake=function() {
   unpaintSnake(oldTail);
   paintHead(head);
   if(head.isSameCoordAs(food)) {
+    updateScore();
     snake.grow();
     createFood(numberOfRows,numberOfCols);
     drawFood(food);
@@ -40,6 +41,13 @@ const addKeyListener=function() {
   grid.focus();
 }
 
+const updateScore = function(){
+  let score = +document.getElementById('score').innerText;
+  score +=10;
+  document.getElementById('score').innerText =score; 
+}
+
+
 const createSnake=function() {
   let tail=new Position(12,10,"east");
   let body=[];
@@ -61,7 +69,7 @@ const startGame=function() {
   createFood(numberOfRows,numberOfCols);
   drawFood(food);
   addKeyListener();
-  animator=setInterval(animateSnake,140);
+  animator=setInterval(animateSnake,100);
 }
 
 window.onload=startGame;
