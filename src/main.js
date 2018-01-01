@@ -46,11 +46,6 @@ const setScoreBoard = function(){
   game.addScore(score);
 };
 
-const showScore = function(points){
-  document.getElementById('score').innerText =points;
-};
-
-
 const createSnake=function() {
   let tail=new Position(12,10,"east");
   let body=[];

@@ -42,3 +42,7 @@ const drawFood=function(food) {
   else
   paintCell(food.getPosition(),"food");  
 }
+
+const showScore = function(points){
+  document.getElementById('score').innerText =points;
+};

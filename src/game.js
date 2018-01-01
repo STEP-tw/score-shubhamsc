@@ -49,7 +49,8 @@ Game.prototype.hasSnakeEatenFood=function() {
 }
 
 Game.prototype.updateScore=function(){
-  let points = this.score.addPoints();
+  this.score.addPoints();
+  let points = this.score.getScore();
   showScore(points);
 }
 

@@ -5,5 +5,8 @@ const Score = function(initScore,pointsToAdd){
 
 Score.prototype.addPoints = function(){
     this.score += this.points;
-    return this.score;
 };
+
+Score.prototype.getScore = function(){
+    return this.score;
+}
