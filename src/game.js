@@ -48,10 +48,9 @@ Game.prototype.hasSnakeEatenFood=function() {
   return this.snake.head.isSameCoordAs(this.food.getPosition());
 }
 
-Game.prototype.updateScore=function(){
+Game.prototype.getUpdatedScore=function(){
   this.score.addPoints();
-  let points = this.score.getScore();
-  showScore(points);
+  return this.score.getScore();
 }
 
 Game.prototype.createFood=function() {
